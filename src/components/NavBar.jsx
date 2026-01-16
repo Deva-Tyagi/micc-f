@@ -288,6 +288,15 @@ const Navbar = () => {
               </a>
             </li>
             <li>
+              <a
+                href="/gallery"
+                className="text-gray-800 hover:text-blue-600 transition duration-300 text-xl"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Gallery
+              </a>
+            </li>
+            <li>
               <button
                 onClick={() => setIsCoursesMenuOpen(!isCoursesMenuOpen)}
                 className="text-gray-800 hover:text-blue-600 transition duration-300 flex items-center text-xl w-full text-left"
