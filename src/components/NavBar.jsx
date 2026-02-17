@@ -9,33 +9,23 @@ const Navbar = () => {
   // Static courses data
   const courses = {
     computerCourses: [
-      { name: "Typing Skills", link: "#typing-skills" },
-      { name: "MS Office", link: "#ms-office" },
+      { name: "Certification in Computer Applications", link: "/courses/Caa" },
+      { name: "Typing Course", link: "/courses/Typing" },
+      { name: "MS Office", link: "/courses/Ms" },
       { name: "Advanced MS Excel", link: "/courses/AdvMsexel" },
-      { name: "Accounting Software (Tally Prime)", link: "#accounting-software" },
-      { name: "Web Development", link: "#web-development" },
-      { name: "Programming Basics (C, Python, HTML)", link: "#programming-basics" },
-      { name: "Advanced Programming (C, C++, Python, Java, MySQL, JavaScript)", link: "#advanced-programming" },
-      { name: "Digital Marketing", link: "#digital-marketing" },
-      { name: "Video Editing", link: "#video-editing" },
-      { name: "Designing and Editing (Corel Draw, Photoshop)", link: "#designing-editing" },
-      { name: "CCC and O-Level (by NIELIT)", link: "#ccc-o-level" },
-      { name: "Computer Technology Program (AI Tools, ChatGPT, Merlin)", link: "#ctp" },
+      { name: "Accounting Software Course", link: "/courses/AccSoftware" },
+      { name: "Web Development", link: "/courses/Web" },
+      { name: "Programming Courses", link: "/courses/Prog" },
+      { name: "Basic Programming", link: "/courses/BasicProg" },
+      { name: "Design and Editing Course", link: "/courses/Design" },
+      { name: "Digital Marketing", link: "/courses/Digital" },
+      { name: "CCC and O-Level by NIELET", link: "/courses/Ccc" },
+      { name: "Computer Technology Program (CTP)", link: "/courses/Ctp" },
+      { name: "Video Editing", link: "/courses/Video" },
     ],
-    englishCourses: [
-      { name: "Basic English Grammar", link: "#basic-grammar" },
-      { name: "Conversational English", link: "#conversational-english" },
-      { name: "Business English", link: "#business-english" },
-      { name: "Advanced Writing Skills", link: "#advanced-writing" },
-      { name: "IELTS Preparation", link: "#ielts-preparation" },
-      { name: "English Speaking (Personality Development, Interview Preparation)", link: "#english-speaking" },
-    ],
+    englishCourses: [{ name: "English Speaking", link: "/courses/English" }],
     distanceLearning: [
-      { name: "Virtual Classrooms", link: "#virtual-classrooms" },
-      { name: "Interactive Assignments", link: "#interactive-assignments" },
-      { name: "Online Tutorials", link: "#online-tutorials" },
-      { name: "Live Q&A Sessions", link: "#live-qa-sessions" },
-      { name: "Certifications", link: "#certifications" },
+      // Currently no distance learning courses available
     ],
   };
 
@@ -51,24 +41,33 @@ const Navbar = () => {
   // Click outside to close menus
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (!event.target.closest('.courses-dropdown') && !event.target.closest('.courses-button')) {
+      if (
+        !event.target.closest(".courses-dropdown") &&
+        !event.target.closest(".courses-button")
+      ) {
         setIsCoursesMenuOpen(false);
       }
-      if (!event.target.closest('.login-dropdown') && !event.target.closest('.login-button')) {
+      if (
+        !event.target.closest(".login-dropdown") &&
+        !event.target.closest(".login-button")
+      ) {
         setIsLoginMenuOpen(false);
       }
-      if (!event.target.closest('.mobile-menu') && !event.target.closest('.mobile-toggle')) {
+      if (
+        !event.target.closest(".mobile-menu") &&
+        !event.target.closest(".mobile-toggle")
+      ) {
         setIsMobileMenuOpen(false);
       }
     };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   const categoryDisplayNames = {
     computerCourses: "Computer Courses",
     englishCourses: "English Courses",
-    distanceLearning: "Distance Learning"
+    distanceLearning: "Distance Learning",
   };
 
   return (
@@ -87,14 +86,23 @@ const Navbar = () => {
 
       {/* Desktop Menu - center links */}
       <div className="hidden lg:flex flex-1 justify-center space-x-8">
-        <a href="/" className="text-gray-800 hover:text-blue-600 transition duration-300">
+        <a
+          href="/"
+          className="text-gray-800 hover:text-blue-600 transition duration-300"
+        >
           Home
         </a>
-        <a href="/about" className="text-gray-800 hover:text-blue-600 transition duration-300">
+        <a
+          href="/about"
+          className="text-gray-800 hover:text-blue-600 transition duration-300"
+        >
           About Us
         </a>
 
-         <a href="/gallery" className="text-gray-800 hover:text-blue-600 transition duration-300">
+        <a
+          href="/gallery"
+          className="text-gray-800 hover:text-blue-600 transition duration-300"
+        >
           Gallery
         </a>
 
@@ -115,18 +123,18 @@ const Navbar = () => {
           </button>
 
           {isCoursesMenuOpen && (
-            <div className="courses-dropdown absolute bg-white border border-gray-300 shadow-lg p-6 mt-2 rounded-md z-10 grid grid-cols-4 gap-6 w-[1200px] text-left left-1/2 transform -translate-x-1/2">
+            <div className="courses-dropdown absolute bg-white border border-gray-300 shadow-lg p-4 mt-2 rounded-md z-10 grid grid-cols-4 gap-4 w-[950px] text-left left-1/2 transform -translate-x-1/2">
               {/* Computer Courses - split into 2 columns */}
               <div>
-                <h3 className="text-xl font-bold text-gray-700 mb-4">
+                <h3 className="text-lg font-bold text-gray-700 mb-3">
                   {categoryDisplayNames.computerCourses}
                 </h3>
-                <ul className="space-y-4">
+                <ul className="space-y-2">
                   {courses.computerCourses.slice(0, 6).map((course, index) => (
                     <li key={`comp-1-${index}`}>
                       <a
                         href={course.link}
-                        className="text-lg text-gray-800 hover:text-blue-600 transition duration-300"
+                        className="text-sm text-gray-800 hover:text-blue-600 transition duration-300"
                       >
                         {course.name}
                       </a>
@@ -136,15 +144,15 @@ const Navbar = () => {
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-gray-700 mb-4">
+                <h3 className="text-lg font-bold text-gray-700 mb-3">
                   {categoryDisplayNames.computerCourses}
                 </h3>
-                <ul className="space-y-4">
+                <ul className="space-y-2">
                   {courses.computerCourses.slice(6).map((course, index) => (
                     <li key={`comp-2-${index}`}>
                       <a
                         href={course.link}
-                        className="text-lg text-gray-800 hover:text-blue-600 transition duration-300"
+                        className="text-sm text-gray-800 hover:text-blue-600 transition duration-300"
                       >
                         {course.name}
                       </a>
@@ -155,15 +163,15 @@ const Navbar = () => {
 
               {/* English Courses */}
               <div>
-                <h3 className="text-xl font-bold text-gray-700 mb-4">
+                <h3 className="text-lg font-bold text-gray-700 mb-3">
                   {categoryDisplayNames.englishCourses}
                 </h3>
-                <ul className="space-y-4">
+                <ul className="space-y-2">
                   {courses.englishCourses.map((course, index) => (
                     <li key={`eng-${index}`}>
                       <a
                         href={course.link}
-                        className="text-lg text-gray-800 hover:text-blue-600 transition duration-300"
+                        className="text-sm text-gray-800 hover:text-blue-600 transition duration-300"
                       >
                         {course.name}
                       </a>
@@ -174,15 +182,15 @@ const Navbar = () => {
 
               {/* Distance Learning */}
               <div>
-                <h3 className="text-xl font-bold text-gray-700 mb-4">
+                <h3 className="text-lg font-bold text-gray-700 mb-3">
                   {categoryDisplayNames.distanceLearning}
                 </h3>
-                <ul className="space-y-4">
+                <ul className="space-y-2">
                   {courses.distanceLearning.map((course, index) => (
                     <li key={`dist-${index}`}>
                       <a
                         href={course.link}
-                        className="text-lg text-gray-800 hover:text-blue-600 transition duration-300"
+                        className="text-sm text-gray-800 hover:text-blue-600 transition duration-300"
                       >
                         {course.name}
                       </a>
@@ -194,7 +202,10 @@ const Navbar = () => {
           )}
         </div>
 
-        <a href="/contact" className="text-gray-800 hover:text-blue-600 transition duration-300">
+        <a
+          href="/contact"
+          className="text-gray-800 hover:text-blue-600 transition duration-300"
+        >
           Contact Us
         </a>
       </div>
@@ -288,6 +299,15 @@ const Navbar = () => {
               </a>
             </li>
             <li>
+              <a
+                href="/gallery"
+                className="text-gray-800 hover:text-blue-600 transition duration-300 text-xl"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Gallery
+              </a>
+            </li>
+            <li>
               <button
                 onClick={() => setIsCoursesMenuOpen(!isCoursesMenuOpen)}
                 className="text-gray-800 hover:text-blue-600 transition duration-300 flex items-center text-xl w-full text-left"
@@ -355,7 +375,11 @@ const Navbar = () => {
                 className="text-gray-800 hover:text-green-600 text-xl flex items-center justify-between w-full"
               >
                 <span>Login Options</span>
-                <span className={`transform transition ${isLoginMenuOpen ? "rotate-180" : ""}`}>▼</span>
+                <span
+                  className={`transform transition ${isLoginMenuOpen ? "rotate-180" : ""}`}
+                >
+                  ▼
+                </span>
               </button>
 
               {isLoginMenuOpen && (

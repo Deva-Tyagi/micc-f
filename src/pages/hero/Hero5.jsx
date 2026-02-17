@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, Search, FileText, Monitor, CheckCircle, ArrowRight } from "lucide-react";
+import {
+  ChevronRight,
+  Search,
+  FileText,
+  Monitor,
+  CheckCircle,
+  ArrowRight,
+} from "lucide-react";
 
 const CoursePathSection = () => {
   const [activeStep, setActiveStep] = useState(0);
@@ -10,31 +17,39 @@ const CoursePathSection = () => {
     {
       icon: Search,
       title: "Choose Your Course",
-      description: "Browse our extensive catalog to find the course that best matches your goals and interests.",
+      description:
+        "Browse our extensive catalog to find the course that best matches your goals and interests.",
       color: "bg-apple-blue",
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&q=90"
+      image:
+        "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&q=90",
     },
     {
       icon: FileText,
       title: "Complete Enrollment",
-      description: "Fill out the enrollment form with your details to secure your spot in the course.",
+      description:
+        "Fill out the enrollment form with your details to secure your spot in the course.",
       color: "bg-apple-purple",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&q=90"
+      image:
+        "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&q=90",
     },
     {
       icon: Monitor,
       title: "Access Materials",
-      description: "Gain immediate access to all course materials and resources to begin your learning journey.",
+      description:
+        "Gain immediate access to all course materials and resources to begin your learning journey.",
       color: "bg-apple-teal",
-      image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&q=90"
+      image:
+        "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&q=90",
     },
     {
       icon: CheckCircle,
       title: "Complete Assignments",
-      description: "Stay on track by completing assignments and assessments to earn your certification.",
+      description:
+        "Stay on track by completing assignments and assessments to earn your certification.",
       color: "bg-apple-pink",
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&q=90"
-    }
+      image:
+        "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&q=90",
+    },
   ];
 
   useEffect(() => {
@@ -83,8 +98,9 @@ const CoursePathSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Our streamlined approach makes learning accessible and effective. Follow these steps
-            to transform your skills and advance your career in the digital world.
+            Our streamlined approach makes learning accessible and effective.
+            Follow these steps to transform your skills and advance your career
+            in the digital world.
           </motion.p>
         </motion.div>
 
@@ -129,7 +145,9 @@ const CoursePathSection = () => {
                   <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">{`Step ${activeStep + 1}`}</h3>
                   <div className="flex items-center">
                     <ActiveIcon className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-                    <span className="text-sm sm:text-base">{steps[activeStep].title}</span>
+                    <span className="text-sm sm:text-base">
+                      {steps[activeStep].title}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -153,12 +171,12 @@ const CoursePathSection = () => {
                     <motion.button
                       key={idx}
                       className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-16 lg:h-16 rounded-full flex items-center justify-center z-10 transition-all ${
-                        idx === activeStep ? step.color : 'bg-gray-100'
+                        idx === activeStep ? step.color : "bg-gray-100"
                       }`}
                       onClick={() => setActiveStep(idx)}
                       whileHover={{
                         scale: 1.1,
-                        boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)"
+                        boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
                       }}
                       whileTap={{ scale: 0.9 }}
                       initial={{ opacity: 0, y: 20 }}
@@ -182,7 +200,7 @@ const CoursePathSection = () => {
                   className={`h-full rounded-full ${steps[activeStep].color}`}
                   initial={{ width: "0%" }}
                   animate={{
-                    width: `${(activeStep / (steps.length - 1)) * 100}%`
+                    width: `${(activeStep / (steps.length - 1)) * 100}%`,
                   }}
                   transition={{ duration: 0.4 }}
                 />
@@ -200,7 +218,9 @@ const CoursePathSection = () => {
                     className="w-full"
                   >
                     <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
-                      <div className={`p-3 sm:p-4 md:p-5 rounded-xl sm:rounded-2xl ${steps[activeStep].color} flex-shrink-0`}>
+                      <div
+                        className={`p-3 sm:p-4 md:p-5 rounded-xl sm:rounded-2xl ${steps[activeStep].color} flex-shrink-0`}
+                      >
                         <ActiveIcon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
                       </div>
                       <div className="flex-1">
