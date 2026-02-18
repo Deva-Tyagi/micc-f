@@ -40,11 +40,14 @@ const Footer = () => {
             {/* First Column: Logo, Address, Contact Info, Social Media Icons */}
             <div className="space-y-8">
               <div>
-                <a href="/" className="inline-block">
+                <a
+                  href="/"
+                  className="inline-block bg-white/90 rounded-lg px-2 py-1"
+                >
                   <img
-                    src="https://placehold.co/200x60/white/white?text=MICC+LOGO"
+                    src="/photos/logo.png"
                     alt="MICC Logo"
-                    className="h-10"
+                    className="h-12 w-auto"
                   />
                 </a>
               </div>

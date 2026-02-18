@@ -82,7 +82,7 @@ const Navbar = () => {
         <Link to="/">
           <img src="/photos/logo.png" alt="Logo" className="w-30 h-10 mr-2" />
         </Link>
-        <span className="text-xl font-bold text-gray-800">MICC</span>
+        {/* <span className="text-xl font-bold text-gray-800">MICC</span> */}
       </div>
 
       {/* ──────────────────────────────────────────────── */}
