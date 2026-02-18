@@ -21,7 +21,7 @@ const OurTeachers = () => {
       designation: "Tutor",
       specialization: "CCA, CCC & O-Level",
       image:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400",
+        "/gallery/g24.jpg",
       description:
         "A dedicated and skilled Tutor responsible for teaching CCA, covering Computer Fundamentals, MS Office, CorelDRAW, Photoshop, and Basics of HTML, C, and Python. She also focuses on CCC and O-Level courses with a student-friendly approach.",
       achievements: [
@@ -36,7 +36,7 @@ const OurTeachers = () => {
       designation: "Head Tutor",
       specialization: "CCA & Tally Prime",
       image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400",
+        "/gallery/g28.jpg",
       description:
         "As Head Tutor, he plays a key role in academic planning and delivers the CCA course. He is also an expert in Tally Prime with GST, providing industry-oriented training in accounting and taxation software with structured methodology.",
       achievements: [
@@ -51,7 +51,7 @@ const OurTeachers = () => {
       designation: "Tutor & Management",
       specialization: "CCA & Administration",
       image:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=400",
+        "/gallery/g26.jpg",
       description:
         "Serves as both Tutor and Management, teaching CCA including MS Office, Design, and Programming basics. She actively supports institute administration, ensuring smooth operations and student coordination for a disciplined environment.",
       achievements: [
@@ -66,7 +66,7 @@ const OurTeachers = () => {
       designation: "Head Tutor",
       specialization: "Advanced Programming",
       image:
-        "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&q=80&w=400",
+        "/gallery/g25.jpg",
       description:
         "Responsible for delivering foundational and advanced computer education. Beyond CCA, she handles C, Python, C++, Web Development, and MySQL, focusing on logical problem-solving and real-world application for career readiness.",
       achievements: [
@@ -81,7 +81,7 @@ const OurTeachers = () => {
       designation: "Management",
       specialization: "Institute Operations",
       image:
-        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400",
+        "/gallery/g23.jpg",
       description:
         "Handles overall management and administrative work, including student coordination and scheduling. Her role ensures smooth institute functioning, maintaining a disciplined and organized learning environment for all students.",
       achievements: [

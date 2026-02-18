@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Users, GraduationCap, Award, Smile } from "lucide-react";
 
-const StatCounter = ({ value, label, icon: Icon, color }) => {
+const StatCounter = ({ value, label, icon: Icon, color, suffix = "+" }) => {
   const [count, setCount] = useState(0);
   const nodeRef = useRef(null);
   const [isInView, setIsInView] = useState(false);
@@ -14,7 +14,7 @@ const StatCounter = ({ value, label, icon: Icon, color }) => {
           setIsInView(true);
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.5 },
     );
 
     if (nodeRef.current) {
@@ -56,7 +56,7 @@ const StatCounter = ({ value, label, icon: Icon, color }) => {
       whileHover={{
         y: -10,
         boxShadow:
-          "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+          "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
       }}
     >
       <motion.div
@@ -73,7 +73,8 @@ const StatCounter = ({ value, label, icon: Icon, color }) => {
         viewport={{ once: true }}
         transition={{ duration: 0.4, delay: 0.2 }}
       >
-        {count}+
+        {count}
+        {suffix}
       </motion.h3>
       <p className="text-sm sm:text-base text-gray-600">{label}</p>
     </motion.div>
@@ -107,7 +108,7 @@ const StatSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            Transforming Careers Through Education
+            Empowering Careers Through Skills and Education
           </motion.h2>
           <motion.p
             className="text-sm sm:text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-4 leading-relaxed"
@@ -116,7 +117,8 @@ const StatSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            We've helped thousands of students achieve their career goals. Here's our impact by the numbers.
+            We've helped thousands of students achieve their career goals.
+            Here's our impact by the numbers.
           </motion.p>
         </motion.div>
 
@@ -135,9 +137,10 @@ const StatSection = () => {
           />
           <StatCounter
             value={95}
-            label="Completion Rate %"
+            label="Completion Rate"
             icon={Award}
             color="bg-gradient-to-br from-emerald-500 to-emerald-600"
+            suffix="%"
           />
           <StatCounter
             value={100}

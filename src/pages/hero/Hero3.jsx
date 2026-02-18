@@ -62,10 +62,10 @@ const TechStack = () => {
                     </motion.div>
 
                     <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 px-2">
-                        Technologies You'll Master
+                        Master the Technologies Powering Tomorrow
                     </h2>
                     <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-4 leading-relaxed">
-                        Our curriculum covers the most in-demand technologies in the industry today.
+                        Engineered to deliver mastery in technologies that matter most today.
                     </p>
                 </motion.div>
 
@@ -108,7 +108,7 @@ const TechStack = () => {
                 </div>
 
                 {/* CTA Button */}
-                <motion.div
+                {/* <motion.div
                     className="flex justify-center mt-8 sm:mt-10 md:mt-12"
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -128,7 +128,7 @@ const TechStack = () => {
                             <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
                         </motion.span>
                     </motion.a>
-                </motion.div>
+                </motion.div> */}
             </div>
         </section>
     );

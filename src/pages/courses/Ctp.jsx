@@ -14,9 +14,10 @@ import {
   Settings,
   Wrench,
 } from "lucide-react";
+import EnrollmentForm from "../../components/EnrollmentForm";
 
 const CtpCourseDetail = () => {
-  const [isEnrolling, setIsEnrolling] = useState(false);
+  const [isEnrollmentOpen, setIsEnrollmentOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("overview");
   const [expandedFaq, setExpandedFaq] = useState(null);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
@@ -60,12 +61,7 @@ const CtpCourseDetail = () => {
   }, [animateCount]);
 
   const handleEnrollClick = () => {
-    setIsEnrolling(true);
-    setTimeout(() => {
-      setIsEnrolling(false);
-      setShowSuccessMessage(true);
-      setTimeout(() => setShowSuccessMessage(false), 3000);
-    }, 1500);
+    setIsEnrollmentOpen(true);
   };
 
   const toggleFaq = (index) => {
@@ -184,24 +180,11 @@ const CtpCourseDetail = () => {
             <div className="mt-10 flex justify-center">
               <button
                 onClick={handleEnrollClick}
-                disabled={isEnrolling}
                 className="group relative px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold rounded-lg shadow-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300"
               >
                 <span className="relative z-10 flex items-center">
-                  {isEnrolling ? (
-                    <>
-                      <div className="animate-spin h-5 w-5 mr-3 border-t-2 border-white rounded-full"></div>
-                      Processing...
-                    </>
-                  ) : (
-                    <>
-                      Enroll Now
-                      <Zap
-                        className="ml-2 group-hover:animate-pulse"
-                        size={20}
-                      />
-                    </>
-                  )}
+                  Enroll Now
+                  <Zap className="ml-2 group-hover:animate-pulse" size={20} />
                 </span>
               </button>
             </div>
@@ -240,7 +223,7 @@ const CtpCourseDetail = () => {
             id="overview"
             className={`transition-opacity duration-500 ${activeTab === "overview" ? "block opacity-100" : "hidden opacity-0"}`}
           >
-            <div className="grid grid-cols-2 gap-12 items-center mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
               <div
                 className={`transition-all duration-1000 delay-300 ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"}`}
               >
@@ -252,7 +235,7 @@ const CtpCourseDetail = () => {
                   troubleshooting. Perfect for aspiring IT technicians and
                   computer support professionals.
                 </p>
-                <div className="mt-8 grid grid-cols-2 gap-4">
+                <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
                     <div className="flex items-center text-gray-600 mb-2">
                       <Cpu size={20} className="mr-2" />
@@ -297,7 +280,7 @@ const CtpCourseDetail = () => {
               <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">
                 What You Will Learn
               </h3>
-              <div className="grid-cols-2 grid gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="bg-white p-6 rounded-lg shadow-md border-t-4 border-gray-500 hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1">
                   <h4 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
                     <Cpu className="text-gray-500 mr-3" size={24} />
@@ -409,7 +392,7 @@ const CtpCourseDetail = () => {
             <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
               Why Choose This Course?
             </h2>
-            <div className="grid grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 {
                   icon: <Cpu size={40} className="text-gray-500" />,
@@ -511,20 +494,12 @@ const CtpCourseDetail = () => {
           </p>
           <button
             onClick={handleEnrollClick}
-            disabled={isEnrolling}
             className="group relative px-8 py-4 bg-white text-gray-600 font-bold rounded-lg shadow-lg hover:bg-gray-50 transition-all duration-300"
           >
-            {isEnrolling ? (
-              <div className="flex items-center">
-                <div className="animate-spin h-5 w-5 mr-3 border-t-2 border-gray-600 rounded-full"></div>
-                Processing...
-              </div>
-            ) : (
-              <span className="flex items-center">
-                Enroll Now
-                <Zap className="ml-2 group-hover:animate-pulse" size={20} />
-              </span>
-            )}
+            <span className="flex items-center">
+              Enroll Now
+              <Zap className="ml-2 group-hover:animate-pulse" size={20} />
+            </span>
           </button>
         </div>
       </section>
@@ -538,6 +513,22 @@ const CtpCourseDetail = () => {
           scrollbar-width: none;
         }
       `}</style>
+      <style jsx>{`
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .hide-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
+
+      {/* Enrollment Form */}
+      <EnrollmentForm
+        isOpen={isEnrollmentOpen}
+        onClose={() => setIsEnrollmentOpen(false)}
+        courseName="Computer Teacher Training (CTP)"
+      />
     </>
   );
 };

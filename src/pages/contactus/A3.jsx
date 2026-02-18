@@ -109,7 +109,7 @@ const ContactFormSection = () => {
                             </div>
                             <div className="min-w-0">
                                 <p className="text-xs text-gray-500 font-medium">CALL US ANYTIME</p>
-                                <p className="text-lg sm:text-xl font-bold text-gray-800">+1 (800) 123-4567</p>
+                                <p className="text-lg sm:text-xl font-bold text-gray-800">+91 73106 13714</p>
                             </div>
                         </motion.div>
                     </motion.div>

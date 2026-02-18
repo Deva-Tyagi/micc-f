@@ -179,37 +179,37 @@ function Gallery() {
     {
       id: 22,
       url: "/gallery/g22.jpg",
-      title: "Teachers",
+      title: "Expert Faculty",
       category: "Teachers",
-      description: "Our amazing students achieving their goals",
+      description: "Dedicated educators guiding student success",
     },
     {
       id: 23,
       url: "/gallery/g23.jpg",
-      title: "Teachers",
+      title: "Expert Faculty",
       category: "Teachers",
-      description: "Our amazing students achieving their goals",
+      description: "Dedicated educators guiding student success",
     },
     {
       id: 24,
       url: "/gallery/g24.jpg",
-      title: "Teachers",
+      title: "Expert Faculty",
       category: "Teachers",
-      description: "Our amazing students achieving their goals",
+      description: "Dedicated educators guiding student success",
     },
     {
       id: 25,
       url: "/gallery/g25.jpg",
-      title: "Teachers",
+      title: "Expert Faculty",
       category: "Teachers",
-      description: "Our amazing students achieving their goals",
+      description: "Dedicated educators guiding student success",
     },
     {
       id: 26,
       url: "/gallery/g26.jpg",
-      title: "Teachers",
+      title: "Expert Faculty",
       category: "Teachers",
-      description: "Our amazing students achieving their goals",
+      description: "Dedicated educators guiding student success",
     },
     {
       id: 27,
@@ -221,16 +221,15 @@ function Gallery() {
     {
       id: 28,
       url: "/gallery/g28.jpg",
-      title: "Teachers",
+      title: "Expert Faculty",
       category: "Teachers",
-      description: "Our amazing students achieving their goals",
+      description: "Dedicated educators guiding student success",
     },
-    
   ];
 
   const filteredImages =
     selectedCategory === "All"
-      ? galleryImages.filter((img) => img.category !== "Teachers")
+      ? galleryImages
       : galleryImages.filter((img) => img.category === selectedCategory);
 
   const openLightbox = (image) => {

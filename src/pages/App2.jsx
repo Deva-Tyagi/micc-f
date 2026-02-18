@@ -5,19 +5,21 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import "../styles/globals.css";
 import Navbar from "../components/NavBar";
 import Footer from "../components/Footer";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+// Pages
 import Home from ".";
 import About from "./about";
 import Contact from "./contact";
 import ExploreCourses from "./Explore";
 import Gallery from "./gallery/Gallery";
 
-// Import course pages
+// Course pages
 import CaaCourse from "./courses/Caa";
 import TypingCourse from "./courses/Typing";
 import MsCourse from "./courses/Ms";
@@ -33,47 +35,47 @@ import CtpCourse from "./courses/Ctp";
 import VideoCourse from "./courses/Video";
 import EnglishCourse from "./courses/English";
 
-// Import your page components here
-// import Home from './pages/Home';
-// import About from './pages/About';
-// import Contact from './pages/Contact';
-// import Explore from './pages/Explore';
-// Add more imports as needed
-
 function AnimatedRoutes() {
   const location = useLocation();
 
   return (
-    <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        {/* Define your routes here */}
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/Explore" element={<ExploreCourses />} />
-        <Route path="/gallery" element={<Gallery />} />
+    <AnimatePresence>
+      <motion.div
+        key={location.pathname}
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -15 }}
+        transition={{ duration: 0.35 }}
+      >
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/Explore" element={<ExploreCourses />} />
+          <Route path="/gallery" element={<Gallery />} />
 
-        {/* Course Routes */}
-        <Route path="/courses/Caa" element={<CaaCourse />} />
-        <Route path="/courses/Typing" element={<TypingCourse />} />
-        <Route path="/courses/Ms" element={<MsCourse />} />
-        <Route path="/courses/AdvMsexel" element={<AdvMsexelCourse />} />
-        <Route path="/courses/AccSoftware" element={<AccSoftwareCourse />} />
-        <Route path="/courses/Web" element={<WebCourse />} />
-        <Route path="/courses/Prog" element={<ProgCourse />} />
-        <Route path="/courses/BasicProg" element={<BasicProgCourse />} />
-        <Route path="/courses/Design" element={<DesignCourse />} />
-        <Route path="/courses/Digital" element={<DigitalCourse />} />
-        <Route path="/courses/Ccc" element={<CccCourse />} />
-        <Route path="/courses/Ctp" element={<CtpCourse />} />
-        <Route path="/courses/Video" element={<VideoCourse />} />
-        <Route path="/courses/English" element={<EnglishCourse />} />
+          {/* Course Routes */}
+          <Route path="/courses/Caa" element={<CaaCourse />} />
+          <Route path="/courses/Typing" element={<TypingCourse />} />
+          <Route path="/courses/Ms" element={<MsCourse />} />
+          <Route path="/courses/AdvMsexel" element={<AdvMsexelCourse />} />
+          <Route path="/courses/AccSoftware" element={<AccSoftwareCourse />} />
+          <Route path="/courses/Web" element={<WebCourse />} />
+          <Route path="/courses/Prog" element={<ProgCourse />} />
+          <Route path="/courses/BasicProg" element={<BasicProgCourse />} />
+          <Route path="/courses/Design" element={<DesignCourse />} />
+          <Route path="/courses/Digital" element={<DigitalCourse />} />
+          <Route path="/courses/Ccc" element={<CccCourse />} />
+          <Route path="/courses/Ctp" element={<CtpCourse />} />
+          <Route path="/courses/Video" element={<VideoCourse />} />
+          <Route path="/courses/English" element={<EnglishCourse />} />
 
-        {/* <Route path="/admin/login" element={<AdminLogin />} /> */}
-        {/* <Route path="/student/login" element={<StudentLogin />} /> */}
-        {/* <Route path="/signup" element={<SignUp />} /> */}
-        {/* Add more routes as needed */}
-      </Routes>
+          {/* Uncomment when ready */}
+          {/* <Route path="/admin/login" element={<AdminLogin />} /> */}
+          {/* <Route path="/student/login" element={<StudentLogin />} /> */}
+          {/* <Route path="/signup" element={<SignUp />} /> */}
+        </Routes>
+      </motion.div>
     </AnimatePresence>
   );
 }

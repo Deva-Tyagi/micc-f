@@ -1,12 +1,31 @@
-import React from 'react'
+import React from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import Navbar from '../components/NavBar';  // adjust path to match your structure
+import Footer from '../components/Footer';
 
-const Layout = ({children,className=""}) => {
+export default function Layout() {
+  const location = useLocation();
+
   return (
-    <div className={`w-full h-full inline-block z-0 bg-light p-32 xl:p-24 lg:p-16 md:p-12 sm:p-8 ${className}`}>
-        {children}
-      
-    </div>
-  )
-}
+    <div className="font-mont bg-light w-full min-h-screen flex flex-col">
+      <Navbar />
 
-export default Layout
+      {/* Animate ONLY the page content */}
+      <AnimatePresence mode="wait">
+        <motion.main
+          key={location.pathname}           // key change triggers exit/enter
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.3 }}
+          className="flex-1"
+        >
+          <Outlet />
+        </motion.main>
+      </AnimatePresence>
+
+      <Footer />
+    </div>
+  );
+}

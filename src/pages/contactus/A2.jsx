@@ -112,9 +112,9 @@ const ContactInfoSection = () => {
                                         <p className="font-semibold uppercase text-xs sm:text-sm text-indigo-600">
                                             Phone
                                         </p>
-                                        <p className="text-gray-800 font-medium">+123 456 7890</p>
+                                        <p className="text-gray-800 font-medium">+91 73106 13714</p>
                                         <motion.a
-                                            href="tel:+1234567890"
+                                            href="tel:+9173106 13714"
                                             className="text-xs sm:text-sm text-indigo-500 hover:text-indigo-700 inline-flex items-center mt-1"
                                             whileHover={{ x: 5 }}
                                         >
@@ -140,7 +140,7 @@ const ContactInfoSection = () => {
                                             Address
                                         </p>
                                         <p className="text-gray-800 font-medium break-words">
-                                            1234 Learning St., Education City, Country
+                                            SBI Bank, First Floor, New, Adarsh Nagar, Roorkee, Uttarakhand 247667
                                         </p>
                                         <motion.a
                                             href="https://maps.google.com"

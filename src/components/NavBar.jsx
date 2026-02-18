@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isCoursesMenuOpen, setIsCoursesMenuOpen] = useState(false);
   const [isLoginMenuOpen, setIsLoginMenuOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
+
+  const navigate = useNavigate();
 
   // Static courses data
   const courses = {
@@ -24,9 +27,7 @@ const Navbar = () => {
       { name: "Video Editing", link: "/courses/Video" },
     ],
     englishCourses: [{ name: "English Speaking", link: "/courses/English" }],
-    distanceLearning: [
-      // Currently no distance learning courses available
-    ],
+    distanceLearning: [],
   };
 
   // Scroll effect
@@ -72,41 +73,43 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`flex items-center justify-between p-4 bg-white border-b border-gray-300 sticky top-0 z-50 transition-opacity duration-300 ${
-        scrolling ? "opacity-70" : "opacity-100"
+      className={`flex items-center justify-between p-4 bg-white border-b border-gray-300 sticky top-0 z-50 transition-all duration-300 ${
+        scrolling ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-white"
       }`}
     >
       {/* Logo */}
       <div className="flex items-center">
-        <a href="/">
+        <Link to="/">
           <img src="/photos/logo.png" alt="Logo" className="w-30 h-10 mr-2" />
-        </a>
+        </Link>
         <span className="text-xl font-bold text-gray-800">MICC</span>
       </div>
 
-      {/* Desktop Menu - center links */}
+      {/* ──────────────────────────────────────────────── */}
+      {/* DESKTOP MENU ──────────────────────────────────── */}
+      {/* ──────────────────────────────────────────────── */}
+
       <div className="hidden lg:flex flex-1 justify-center space-x-8">
-        <a
-          href="/"
+        <Link
+          to="/"
           className="text-gray-800 hover:text-blue-600 transition duration-300"
         >
           Home
-        </a>
-        <a
-          href="/about"
+        </Link>
+        <Link
+          to="/about"
           className="text-gray-800 hover:text-blue-600 transition duration-300"
         >
           About Us
-        </a>
-
-        <a
-          href="/gallery"
+        </Link>
+        <Link
+          to="/gallery"
           className="text-gray-800 hover:text-blue-600 transition duration-300"
         >
           Gallery
-        </a>
+        </Link>
 
-        {/* Courses Dropdown */}
+        {/* Desktop Courses Dropdown */}
         <div className="relative">
           <button
             onClick={() => setIsCoursesMenuOpen(!isCoursesMenuOpen)}
@@ -124,7 +127,6 @@ const Navbar = () => {
 
           {isCoursesMenuOpen && (
             <div className="courses-dropdown absolute bg-white border border-gray-300 shadow-lg p-4 mt-2 rounded-md z-10 grid grid-cols-4 gap-4 w-[950px] text-left left-1/2 transform -translate-x-1/2">
-              {/* Computer Courses - split into 2 columns */}
               <div>
                 <h3 className="text-lg font-bold text-gray-700 mb-3">
                   {categoryDisplayNames.computerCourses}
@@ -132,17 +134,17 @@ const Navbar = () => {
                 <ul className="space-y-2">
                   {courses.computerCourses.slice(0, 6).map((course, index) => (
                     <li key={`comp-1-${index}`}>
-                      <a
-                        href={course.link}
+                      <Link
+                        to={course.link}
                         className="text-sm text-gray-800 hover:text-blue-600 transition duration-300"
+                        onClick={() => setIsCoursesMenuOpen(false)}
                       >
                         {course.name}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
               </div>
-
               <div>
                 <h3 className="text-lg font-bold text-gray-700 mb-3">
                   {categoryDisplayNames.computerCourses}
@@ -150,18 +152,17 @@ const Navbar = () => {
                 <ul className="space-y-2">
                   {courses.computerCourses.slice(6).map((course, index) => (
                     <li key={`comp-2-${index}`}>
-                      <a
-                        href={course.link}
+                      <Link
+                        to={course.link}
                         className="text-sm text-gray-800 hover:text-blue-600 transition duration-300"
+                        onClick={() => setIsCoursesMenuOpen(false)}
                       >
                         {course.name}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
               </div>
-
-              {/* English Courses */}
               <div>
                 <h3 className="text-lg font-bold text-gray-700 mb-3">
                   {categoryDisplayNames.englishCourses}
@@ -169,18 +170,17 @@ const Navbar = () => {
                 <ul className="space-y-2">
                   {courses.englishCourses.map((course, index) => (
                     <li key={`eng-${index}`}>
-                      <a
-                        href={course.link}
+                      <Link
+                        to={course.link}
                         className="text-sm text-gray-800 hover:text-blue-600 transition duration-300"
+                        onClick={() => setIsCoursesMenuOpen(false)}
                       >
                         {course.name}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
               </div>
-
-              {/* Distance Learning */}
               <div>
                 <h3 className="text-lg font-bold text-gray-700 mb-3">
                   {categoryDisplayNames.distanceLearning}
@@ -188,12 +188,13 @@ const Navbar = () => {
                 <ul className="space-y-2">
                   {courses.distanceLearning.map((course, index) => (
                     <li key={`dist-${index}`}>
-                      <a
-                        href={course.link}
+                      <Link
+                        to={course.link}
                         className="text-sm text-gray-800 hover:text-blue-600 transition duration-300"
+                        onClick={() => setIsCoursesMenuOpen(false)}
                       >
                         {course.name}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -202,22 +203,22 @@ const Navbar = () => {
           )}
         </div>
 
-        <a
-          href="/contact"
+        <Link
+          to="/contact"
           className="text-gray-800 hover:text-blue-600 transition duration-300"
         >
           Contact Us
-        </a>
+        </Link>
       </div>
 
       {/* Desktop Right Buttons */}
       <div className="hidden lg:flex space-x-3">
-        <a
-          href="/Explore"
+        <Link
+          to="/Explore"
           className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300"
         >
           Enroll
-        </a>
+        </Link>
 
         <div className="relative">
           <button
@@ -242,8 +243,7 @@ const Navbar = () => {
                 onClick={() => setIsLoginMenuOpen(false)}
               >
                 <div className="flex items-center">
-                  <span className="mr-2">🔧</span>
-                  Admin Login
+                  <span className="mr-2">🔧</span> Admin Login
                 </div>
               </a>
               <a
@@ -252,23 +252,22 @@ const Navbar = () => {
                 onClick={() => setIsLoginMenuOpen(false)}
               >
                 <div className="flex items-center">
-                  <span className="mr-2">🎓</span>
-                  Student Login
+                  <span className="mr-2">🎓</span> Student Login
                 </div>
               </a>
             </div>
           )}
         </div>
 
-        <a
-          href="/signup"
+        <Link
+          to="/signup"
           className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition duration-300"
         >
           Sign Up
-        </a>
+        </Link>
       </div>
 
-      {/* Mobile Hamburger - only visible on mobile */}
+      {/* Mobile Hamburger */}
       <button
         className="lg:hidden text-gray-800 text-2xl mobile-toggle"
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -276,37 +275,42 @@ const Navbar = () => {
         ☰
       </button>
 
-      {/* Mobile Menu */}
+      {/* ──────────────────────────────────────────────── */}
+      {/* MOBILE MENU ───────────────────────────────────── */}
+      {/* ──────────────────────────────────────────────── */}
+
       {isMobileMenuOpen && (
         <div className="mobile-menu lg:hidden absolute top-16 left-0 w-full bg-white shadow-md z-50">
           <ul className="flex flex-col space-y-4 p-4">
             <li>
-              <a
-                href="/"
+              <Link
+                to="/"
                 className="text-gray-800 hover:text-blue-600 transition duration-300 text-xl"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/about"
+              <Link
+                to="/about"
                 className="text-gray-800 hover:text-blue-600 transition duration-300 text-xl"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 About Us
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/gallery"
+              <Link
+                to="/gallery"
                 className="text-gray-800 hover:text-blue-600 transition duration-300 text-xl"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Gallery
-              </a>
+              </Link>
             </li>
+
+            {/* Mobile Courses */}
             <li>
               <button
                 onClick={() => setIsCoursesMenuOpen(!isCoursesMenuOpen)}
@@ -323,67 +327,77 @@ const Navbar = () => {
               </button>
 
               {isCoursesMenuOpen && (
-                <div className="mt-4 pl-4 border-l-2 border-gray-200">
-                  {Object.entries(courses).map(([category, items]) => (
-                    <div key={category} className="mb-6">
-                      <h4 className="font-bold text-gray-800 mb-3">
-                        {categoryDisplayNames[category]}
-                      </h4>
-                      <ul className="space-y-2">
-                        {items.map((course, index) => (
-                          <li key={index}>
-                            <a
-                              href={course.link}
-                              className="text-gray-700 hover:text-blue-600"
-                              onClick={() => {
-                                setIsMobileMenuOpen(false);
-                                setIsCoursesMenuOpen(false);
-                              }}
-                            >
-                              {course.name}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
+                <div className="mt-4 pl-6 border-l-2 border-gray-200">
+                  {Object.entries(courses).map(([category, items]) =>
+                    items.length > 0 ? (
+                      <div key={category} className="mb-6">
+                        <h4 className="font-bold text-gray-800 mb-3">
+                          {categoryDisplayNames[category]}
+                        </h4>
+                        <ul className="space-y-2">
+                          {items.map((course, index) => (
+                            <li key={index}>
+                              <a
+                                href={course.link} // using <a> instead of <Link> for control
+                                className="text-gray-700 hover:text-blue-600 block py-1.5 text-base"
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  setIsCoursesMenuOpen(false);
+                                  setIsMobileMenuOpen(false);
+                                  // Navigate after menus start closing
+                                  setTimeout(() => {
+                                    navigate(course.link);
+                                  }, 120); // 100–150ms is usually perfect
+                                }}
+                              >
+                                {course.name}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ) : null,
+                  )}
                 </div>
               )}
             </li>
+
             <li>
-              <a
-                href="/contact"
+              <Link
+                to="/contact"
                 className="text-gray-800 hover:text-blue-600 transition duration-300 text-xl"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Contact Us
-              </a>
+              </Link>
             </li>
 
-            {/* Mobile buttons */}
-            <div className="pt-4 border-t flex flex-col space-y-4">
-              <a
-                href="/Explore"
-                className="bg-blue-600 text-white py-3 rounded-lg text-center"
+            {/* Mobile Action Buttons */}
+            <div className="pt-6 border-t flex flex-col space-y-4">
+              <Link
+                to="/Explore"
+                className="bg-blue-600 text-white py-3 rounded-lg text-center font-medium"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Enroll
-              </a>
+              </Link>
 
               <button
                 onClick={() => setIsLoginMenuOpen(!isLoginMenuOpen)}
-                className="text-gray-800 hover:text-green-600 text-xl flex items-center justify-between w-full"
+                className="text-gray-800 hover:text-green-600 text-xl flex items-center justify-between w-full font-medium"
               >
                 <span>Login Options</span>
                 <span
-                  className={`transform transition ${isLoginMenuOpen ? "rotate-180" : ""}`}
+                  className={`transform transition ${
+                    isLoginMenuOpen ? "rotate-180" : ""
+                  }`}
                 >
                   ▼
                 </span>
               </button>
 
               {isLoginMenuOpen && (
-                <div className="pl-4 space-y-3">
+                <div className="pl-6 space-y-4 text-lg">
                   <a
                     href="/admin/login"
                     className="block hover:text-green-600"
@@ -407,13 +421,13 @@ const Navbar = () => {
                 </div>
               )}
 
-              <a
-                href="/signup"
-                className="bg-purple-600 text-white py-3 rounded-lg text-center"
+              <Link
+                to="/signup"
+                className="bg-purple-600 text-white py-3 rounded-lg text-center font-medium"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Sign Up
-              </a>
+              </Link>
             </div>
           </ul>
         </div>

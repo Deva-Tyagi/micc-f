@@ -51,7 +51,7 @@ const AnimatedBackground = () => {
 };
 
 // Reusable Card Component for Core Values
-function ValueCard({ icon: Icon, title, description, color }) {
+function ValueCard({ icon: Icon, title, description, hinglish, color }) {
   return (
     <motion.div
       className={`bg-white p-4 sm:p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-b-4 ${color}`}
@@ -66,7 +66,12 @@ function ValueCard({ icon: Icon, title, description, color }) {
         </div>
         <h3 className="text-lg sm:text-xl font-bold text-gray-800">{title}</h3>
       </div>
-      <p className="text-sm sm:text-base text-gray-600">{description}</p>
+      <p className="text-sm sm:text-base text-gray-600 mb-2">{description}</p>
+      {hinglish && (
+        <p className="text-sm sm:text-base text-gray-500 italic font-medium opacity-90">
+          "{hinglish}"
+        </p>
+      )}
       {/* Decorative gradient bar */}
       <motion.div
         className="mt-4 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
@@ -100,6 +105,7 @@ function StatCounter({
   label,
   icon: Icon,
   color = "from-blue-500 to-purple-500",
+  suffix = "+",
 }) {
   const [count, setCount] = useState(0);
   const { ref, inView } = useInView({
@@ -138,7 +144,8 @@ function StatCounter({
         </div>
       </div>
       <h3 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-2">
-        {count}+
+        {count}
+        {suffix}
       </h3>
       <p className="text-sm sm:text-base text-gray-600">{label}</p>
     </motion.div>
@@ -184,7 +191,7 @@ function Testimonial({ name, role, quote, rating = 5 }) {
 }
 
 // Feature Card Component
-function FeatureCard({ icon: Icon, title, description }) {
+function FeatureCard({ icon: Icon, title, description, hinglish }) {
   return (
     <motion.div
       className="bg-gradient-to-br from-blue-50 to-purple-50 p-4 sm:p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300"
@@ -200,7 +207,12 @@ function FeatureCard({ icon: Icon, title, description }) {
         <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2">
           {title}
         </h3>
-        <p className="text-sm sm:text-base text-gray-600">{description}</p>
+        <p className="text-sm sm:text-base text-gray-600 mb-2">{description}</p>
+        {hinglish && (
+          <p className="text-sm sm:text-base text-gray-500 italic font-medium opacity-90">
+            "{hinglish}"
+          </p>
+        )}
       </div>
     </motion.div>
   );
@@ -436,7 +448,7 @@ function AboutUs() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
             >
-              Empowering Students with Future-Ready Tech Skills
+              Shaping Tomorrow’s Talent with Industry-Ready Tech Skills
             </motion.h1>
             <motion.p
               className="text-base sm:text-lg md:text-xl text-gray-200 mb-6 sm:mb-8"
@@ -444,8 +456,8 @@ function AboutUs() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
             >
-              MICC bridges the gap between learning and real-world applications
-              with hands-on training and expert guidance.
+              We bridge the gap between education and real-world impact through
+              practical learning, mentorship, and cutting-edge curriculum.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -490,7 +502,7 @@ function AboutUs() {
             animate={statsInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
           >
-            Our Impact in Numbers
+            Our Impact, Measured by Results
           </motion.h2>
           <motion.p
             className="text-center text-sm sm:text-base text-gray-600 max-w-2xl mx-auto mb-8 sm:mb-12 px-4"
@@ -498,8 +510,7 @@ function AboutUs() {
             animate={statsInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            We're proud of our achievements and the difference we've made in
-            students' lives
+            Delivering meaningful outcomes that shape student success.
           </motion.p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             <StatCounter
@@ -522,9 +533,10 @@ function AboutUs() {
             />
             <StatCounter
               value={95}
-              label="Success Rate %"
+              label="Success Rate"
               icon={Rocket}
               color="from-blue-500 to-cyan-500"
+              suffix="%"
             />
           </div>
         </div>
@@ -540,11 +552,10 @@ function AboutUs() {
             className="text-center mb-8 sm:mb-12"
           >
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3 sm:mb-4">
-              Why Choose Us
+              What Sets Us Apart
             </h2>
             <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto px-4">
-              We offer a unique learning experience that sets us apart from
-              traditional educational institutions
+              A learning model designed beyond traditional education.
             </p>
           </motion.div>
 
@@ -552,17 +563,20 @@ function AboutUs() {
             <FeatureCard
               icon={Zap}
               title="Accelerated Learning"
-              description="Our focused curriculum helps you learn faster and more effectively than traditional methods."
+              description=" Learn smarter with a focused curriculum designed to deliver faster, measurable outcomes."
+              hinglish="Kam time, zyada impact."
             />
             <FeatureCard
               icon={Star}
               title="Industry Experts"
-              description="Learn from professionals who have years of real-world experience in the tech industry."
+              description="Gain insights and mentorship from professionals with proven real-world industry experience."
+              hinglish="Seekho unse jo industry jee chuke hain."
             />
             <FeatureCard
               icon={Clock}
               title="Flexible Schedule"
-              description="Study at your own pace with our flexible course schedules designed to fit your lifestyle."
+              description="Learn at your own pace with schedules built to adapt to your lifestyle and commitments."
+              hinglish="Learning jo tumhare time pe chale."
             />
           </div>
         </div>
@@ -593,11 +607,7 @@ function AboutUs() {
                 </h2>
               </div>
               <p className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed mb-4 sm:mb-6">
-                Our mission is to provide students with cutting-edge tech
-                education, ensuring they are industry-ready with practical
-                skills and real-world exposure. We believe in learning by doing,
-                which is why our curriculum emphasizes hands-on projects and
-                real-world applications.
+                We deliver future-focused technology education that bridges the gap between learning and real-world application. Through hands-on projects and practical training, we prepare students with industry-ready skills to succeed in today’s digital landscape.
               </p>
               {/* Decorative accent bar */}
               <motion.div
@@ -670,11 +680,7 @@ function AboutUs() {
                 </h2>
               </div>
               <p className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed mb-4 sm:mb-6">
-                To be a leading institute in technology education, empowering
-                students to innovate and shape the digital future. We envision a
-                world where every student has access to quality tech education
-                that prepares them for the challenges and opportunities of
-                tomorrow.
+               To become a global benchmark in technology education, empowering learners across the world with future-ready skills, innovative thinking, and real-world expertise—so they can lead change and shape the digital economy of tomorrow.
               </p>
               {/* Decorative accent bar */}
               <motion.div
@@ -740,36 +746,39 @@ function AboutUs() {
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3 sm:mb-4">
-              Core Values
+              Values That Drive Us
             </h2>
             <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto mb-8 sm:mb-12 px-4">
-              Our values shape everything we do at MICC, from curriculum
-              development to student support.
+              The foundation behind how we design our programs, support our learners, and deliver meaningful outcomes.
             </p>
           </motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             <ValueCard
               icon={Lightbulb}
               title="Innovation"
-              description="We embrace the latest tech trends and methodologies to provide cutting-edge education that prepares students for the future."
+              description="Staying ahead by embracing emerging technologies and modern learning methods."
+              hinglish="Future pehle seekhte hain."
               color="border-blue-500"
             />
             <ValueCard
               icon={GraduationCap}
               title="Excellence"
-              description="Our curriculum is designed by industry experts to ensure the highest standards of education and training."
+              description=" Expert-designed programs built to meet the highest industry standards."
+              hinglish="Quality jo industry maanta hai."
               color="border-purple-500"
             />
             <ValueCard
               icon={Wrench}
               title="Practical Learning"
-              description="We believe in learning by doing, which is why our courses emphasize hands-on projects and real-world applications."
+              description=" Hands-on learning through real projects and real-world applications."
+              hinglish="Seekho karke, sirf padh ke nahi."
               color="border-orange-500"
             />
             <ValueCard
               icon={Rocket}
               title="Student Success"
-              description="Our ultimate goal is to see our students succeed in their careers through industry connections and ongoing support."
+              description=" Focused on long-term career growth through guidance and industry support."
+              hinglish="Tumhari success, humara mission."
               color="border-pink-500"
             />
           </div>
@@ -867,11 +876,10 @@ function AboutUs() {
             viewport={{ once: true }}
           >
             <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">
-              Ready to Start Your Tech Journey?
+              Begin Your Professional Tech Journey
             </h2>
             <p className="text-base sm:text-lg lg:text-xl mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
-              Join our community of learners and innovators today. Take the
-              first step towards a successful tech career.
+              Access structured learning, expert guidance, and practical exposure built for real-world success.
             </p>
             {/* Decorative icon grid */}
             <div className="flex flex-wrap gap-4 sm:gap-6 justify-center items-center">

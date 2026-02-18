@@ -113,7 +113,8 @@ const FeatureShowcase = () => {
       icon: BookOpen,
       title: "Comprehensive Curriculum",
       description:
-        "Our courses cover everything from fundamentals to advanced concepts, ensuring a well-rounded education.",
+        "A well-structured program covering essentials to advanced concepts, designed for practical learning and real-world success.",
+      hinglish: "Basics se advanced – sab kuch clear aur complete.",
       color: "from-blue-500 to-cyan-400",
       accent: "border-blue-500/20",
     },
@@ -121,7 +122,8 @@ const FeatureShowcase = () => {
       icon: Rocket,
       title: "Fast-Track Learning",
       description:
-        "Accelerate your career with our streamlined courses designed to get you job-ready in record time.",
+        "Accelerate your journey with focused, streamlined learning designed to make you job-ready faster.",
+      hinglish: "Kam time mein zyada growth.",
       color: "from-purple-500 to-pink-400",
       accent: "border-purple-500/20",
     },
@@ -129,7 +131,8 @@ const FeatureShowcase = () => {
       icon: Users,
       title: "Supportive Community",
       description:
-        "Join a network of like-minded learners and industry professionals who will support your journey.",
+        "Be part of a like-minded community of learners and industry experts who support and grow together.",
+      hinglish: "Akele nahi, saath milke grow karo.",
       color: "from-orange-500 to-amber-400",
       accent: "border-orange-500/20",
     },
@@ -137,7 +140,8 @@ const FeatureShowcase = () => {
       icon: LaptopIcon,
       title: "Hands-On Projects",
       description:
-        "Apply your knowledge through real-world projects that build your portfolio and practical skills.",
+        "Work on real-world projects that help you apply concepts, sharpen skills, and build a strong portfolio.",
+      hinglish: "Seekhna nahi, karke dikhana.",
       color: "from-emerald-500 to-teal-400",
       accent: "border-emerald-500/20",
     },
@@ -146,6 +150,7 @@ const FeatureShowcase = () => {
       title: "Industry Certifications",
       description:
         "Earn recognized certifications that validate your skills and boost your employability.",
+      hinglish: "Certification paayein, apni value badhayein.",
       color: "from-rose-500 to-red-400",
       accent: "border-rose-500/20",
     },
@@ -153,7 +158,8 @@ const FeatureShowcase = () => {
       icon: HandHelping,
       title: "Dedicated Mentorship",
       description:
-        "Receive personalized guidance from experienced mentors committed to your success.",
+        "Get one-on-one guidance from experienced mentors focused on your growth and success.",
+      hinglish: "Guidance jo career bana de.",
       color: "from-indigo-500 to-blue-400",
       accent: "border-indigo-500/20",
     },
@@ -230,8 +236,11 @@ const FeatureShowcase = () => {
               <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3">
                 {feature.title}
               </h3>
-              <p className="text-sm sm:text-base text-gray-100 leading-relaxed">
+              <p className="text-sm sm:text-base text-gray-100 leading-relaxed mb-2">
                 {feature.description}
+              </p>
+              <p className="text-sm sm:text-base text-gray-200 italic font-medium leading-relaxed opacity-90">
+                "{feature.hinglish}"
               </p>
             </motion.div>
           ))}
