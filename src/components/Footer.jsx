@@ -65,7 +65,7 @@ const Footer = () => {
                   <span className="w-8 h-0.5 bg-blue-400"></span>
                   Contact Us
                 </h4>
-                <p className="text-gray-300 mb-2">Phone: +123 456 7890</p>
+                <p className="text-gray-300 mb-2">Phone: +91 73106 13714</p>
                 <p className="text-gray-300">Email: miccflyhigh@gmail.com</p>
               </div>
 
