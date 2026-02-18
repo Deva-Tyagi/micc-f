@@ -124,7 +124,7 @@ const StatSection = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
           <StatCounter
-            value={500}
+            value={1000}
             label="Graduated Students"
             icon={Users}
             color="bg-gradient-to-br from-blue-500 to-blue-600"
@@ -143,7 +143,7 @@ const StatSection = () => {
             suffix="%"
           />
           <StatCounter
-            value={100}
+            value={950}
             label="Success Stories"
             icon={Smile}
             color="bg-gradient-to-br from-rose-500 to-rose-600"

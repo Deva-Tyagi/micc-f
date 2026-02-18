@@ -514,7 +514,7 @@ function AboutUs() {
           </motion.p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             <StatCounter
-              value={500}
+              value={1000}
               label="Students Trained"
               icon={Users}
               color="from-blue-500 to-purple-500"

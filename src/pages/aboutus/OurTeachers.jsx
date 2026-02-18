@@ -20,8 +20,7 @@ const OurTeachers = () => {
       name: "Miss Kalash",
       designation: "Tutor",
       specialization: "CCA, CCC & O-Level",
-      image:
-        "/gallery/g24.jpg",
+      image: "/gallery/g24.jpg",
       description:
         "A dedicated and skilled Tutor responsible for teaching CCA, covering Computer Fundamentals, MS Office, CorelDRAW, Photoshop, and Basics of HTML, C, and Python. She also focuses on CCC and O-Level courses with a student-friendly approach.",
       achievements: [
@@ -35,8 +34,7 @@ const OurTeachers = () => {
       name: "Mr. Prajwal",
       designation: "Head Tutor",
       specialization: "CCA & Tally Prime",
-      image:
-        "/gallery/g28.jpg",
+      image: "/gallery/g28.jpg",
       description:
         "As Head Tutor, he plays a key role in academic planning and delivers the CCA course. He is also an expert in Tally Prime with GST, providing industry-oriented training in accounting and taxation software with structured methodology.",
       achievements: [
@@ -50,8 +48,7 @@ const OurTeachers = () => {
       name: "Miss Aarti",
       designation: "Tutor & Management",
       specialization: "CCA & Administration",
-      image:
-        "/gallery/g26.jpg",
+      image: "/gallery/g26.jpg",
       description:
         "Serves as both Tutor and Management, teaching CCA including MS Office, Design, and Programming basics. She actively supports institute administration, ensuring smooth operations and student coordination for a disciplined environment.",
       achievements: [
@@ -65,8 +62,7 @@ const OurTeachers = () => {
       name: "Miss Himanshi",
       designation: "Head Tutor",
       specialization: "Advanced Programming",
-      image:
-        "/gallery/g25.jpg",
+      image: "/gallery/g25.jpg",
       description:
         "Responsible for delivering foundational and advanced computer education. Beyond CCA, she handles C, Python, C++, Web Development, and MySQL, focusing on logical problem-solving and real-world application for career readiness.",
       achievements: [
@@ -80,8 +76,7 @@ const OurTeachers = () => {
       name: "Miss Maheen",
       designation: "Management",
       specialization: "Institute Operations",
-      image:
-        "/gallery/g23.jpg",
+      image: "/gallery/g23.jpg",
       description:
         "Handles overall management and administrative work, including student coordination and scheduling. Her role ensures smooth institute functioning, maintaining a disciplined and organized learning environment for all students.",
       achievements: [
@@ -174,7 +169,7 @@ const OurTeachers = () => {
                   <motion.img
                     src={teacher.image}
                     alt={teacher.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-top"
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.4 }}
                   />

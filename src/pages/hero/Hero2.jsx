@@ -9,13 +9,12 @@ import {
   HandHelping,
   Sparkles,
   Code2,
-  Terminal,
-  GitBranch,
-  Braces,
   Database,
-  Layers,
-  Server,
-  Workflow,
+  Palette,
+  FileSpreadsheet,
+  UserCheck,
+  Keyboard,
+  Calculator,
 } from "lucide-react";
 
 const WhyChooseUs = () => {
@@ -32,14 +31,28 @@ const FloatingIcons = () => {
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   const icons = [
-    { Icon: Code2, color: "text-blue-500", delay: 0, label: "Code" },
-    { Icon: Terminal, color: "text-green-500", delay: 0.1, label: "Terminal" },
-    { Icon: GitBranch, color: "text-orange-500", delay: 0.2, label: "Git" },
-    { Icon: Braces, color: "text-purple-500", delay: 0.3, label: "JSON" },
+    { Icon: Palette, color: "text-purple-500", delay: 0, label: "Designing" },
+    {
+      Icon: FileSpreadsheet,
+      color: "text-green-500",
+      delay: 0.1,
+      label: "MS Office",
+    },
+    {
+      Icon: UserCheck,
+      color: "text-orange-500",
+      delay: 0.2,
+      label: "Personality Dev",
+    },
+    { Icon: Keyboard, color: "text-sky-500", delay: 0.3, label: "Typing" },
     { Icon: Database, color: "text-cyan-500", delay: 0.4, label: "Database" },
-    { Icon: Layers, color: "text-pink-500", delay: 0.5, label: "Frameworks" },
-    { Icon: Server, color: "text-yellow-500", delay: 0.6, label: "Backend" },
-    { Icon: Workflow, color: "text-teal-500", delay: 0.7, label: "CI/CD" },
+    {
+      Icon: Calculator,
+      color: "text-blue-500",
+      delay: 0.5,
+      label: "Accounting",
+    },
+    { Icon: Code2, color: "text-indigo-500", delay: 0.6, label: "Coding" },
   ];
 
   return (

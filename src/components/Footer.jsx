@@ -1,6 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Facebook, Instagram, Linkedin, Twitter, Mail, ArrowRight } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  Twitter,
+  Mail,
+  ArrowRight,
+} from "lucide-react";
 
 const Footer = () => {
   return (
@@ -11,14 +18,20 @@ const Footer = () => {
           <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
         </div>
       </div>
-      
+
       {/* Animated shapes */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
         <div className="absolute -top-20 -right-20 w-64 h-64 bg-blue-500 rounded-full opacity-10 animate-pulse"></div>
-        <div className="absolute top-40 -left-20 w-80 h-80 bg-indigo-500 rounded-full opacity-10 animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-20 right-40 w-40 h-40 bg-purple-500 rounded-full opacity-10 animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div
+          className="absolute top-40 -left-20 w-80 h-80 bg-indigo-500 rounded-full opacity-10 animate-pulse"
+          style={{ animationDelay: "1s" }}
+        ></div>
+        <div
+          className="absolute bottom-20 right-40 w-40 h-40 bg-purple-500 rounded-full opacity-10 animate-pulse"
+          style={{ animationDelay: "2s" }}
+        ></div>
       </div>
-      
+
       {/* Content */}
       <div className="relative z-10 py-16 px-5 text-white">
         <div className="max-w-7xl mx-auto">
@@ -35,18 +48,18 @@ const Footer = () => {
                   />
                 </a>
               </div>
-              
+
               <div>
                 <h4 className="text-xl font-bold mb-4 flex items-center gap-2">
                   <span className="w-8 h-0.5 bg-blue-400"></span>
                   Address
                 </h4>
                 <p className="text-gray-300">
-                  123 Mahi Institute, Main Street<br />
-                  Education City, Country
+                  SBI Bank, First Floor, New, Adarsh Nagar<br></br> Roorkee,
+                  Uttarakhand 247667
                 </p>
               </div>
-              
+
               <div>
                 <h4 className="text-xl font-bold mb-4 flex items-center gap-2">
                   <span className="w-8 h-0.5 bg-blue-400"></span>
@@ -55,41 +68,47 @@ const Footer = () => {
                 <p className="text-gray-300 mb-2">Phone: +123 456 7890</p>
                 <p className="text-gray-300">Email: miccflyhigh@gmail.com</p>
               </div>
-              
+
               <div>
                 <h4 className="text-xl font-bold mb-4 flex items-center gap-2">
                   <span className="w-8 h-0.5 bg-blue-400"></span>
                   Follow Us
                 </h4>
                 <div className="flex gap-4">
-                  <motion.a 
-                    href="https://www.facebook.com" 
+                  <motion.a
+                    href="https://www.facebook.com/profile.php?id=61550362065663#"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full bg-blue-800/30 flex items-center justify-center hover:bg-blue-600 transition-colors duration-300"
                     whileHover={{ y: -5 }}
                   >
                     <Facebook size={20} />
                   </motion.a>
-                  <motion.a 
-                    href="https://www.instagram.com" 
+                  <motion.a
+                    href="https://www.instagram.com/micc.official/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full bg-blue-800/30 flex items-center justify-center hover:bg-pink-600 transition-colors duration-300"
                     whileHover={{ y: -5 }}
                   >
                     <Instagram size={20} />
                   </motion.a>
-                  <motion.a 
-                    href="https://www.linkedin.com" 
+                  <motion.a
+                    href="https://in.linkedin.com/company/mahi-institute-computer-centre"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full bg-blue-800/30 flex items-center justify-center hover:bg-blue-500 transition-colors duration-300"
                     whileHover={{ y: -5 }}
                   >
                     <Linkedin size={20} />
                   </motion.a>
-                  <motion.a 
+                  {/* <motion.a 
                     href="https://www.twitter.com" 
                     className="w-10 h-10 rounded-full bg-blue-800/30 flex items-center justify-center hover:bg-blue-400 transition-colors duration-300"
                     whileHover={{ y: -5 }}
                   >
                     <Twitter size={20} />
-                  </motion.a>
+                  </motion.a> */}
                 </div>
               </div>
             </div>
@@ -102,8 +121,8 @@ const Footer = () => {
               </h4>
               <ul className="space-y-4">
                 <li>
-                  <motion.a 
-                    href="/about" 
+                  <motion.a
+                    href="/about"
                     className="text-gray-300 hover:text-white flex items-center gap-2 group"
                     whileHover={{ x: 5 }}
                   >
@@ -112,8 +131,8 @@ const Footer = () => {
                   </motion.a>
                 </li>
                 <li>
-                  <motion.a 
-                    href="/explore" 
+                  <motion.a
+                    href="/explore"
                     className="text-gray-300 hover:text-white flex items-center gap-2 group"
                     whileHover={{ x: 5 }}
                   >
@@ -122,8 +141,8 @@ const Footer = () => {
                   </motion.a>
                 </li>
                 <li>
-                  <motion.a 
-                    href="/contact" 
+                  <motion.a
+                    href="/contact"
                     className="text-gray-300 hover:text-white flex items-center gap-2 group"
                     whileHover={{ x: 5 }}
                   >
@@ -132,7 +151,7 @@ const Footer = () => {
                   </motion.a>
                 </li>
                 {/* <li> */}
-                  {/* <motion.a 
+                {/* <motion.a 
                     href="/careers" 
                     className="text-gray-300 hover:text-white flex items-center gap-2 group"
                     whileHover={{ x: 5 }}
@@ -161,11 +180,15 @@ const Footer = () => {
                 Subscribe to Our Newsletter
               </h4>
               <p className="text-gray-300 mb-6">
-                Stay updated with our latest news, courses, and educational insights.
+                Stay updated with our latest news, courses, and educational
+                insights.
               </p>
               <form className="space-y-4">
                 <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                  <Mail
+                    className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                    size={20}
+                  />
                   <input
                     type="email"
                     placeholder="Enter your email"
@@ -194,13 +217,22 @@ const Footer = () => {
               © 2024 Mahi Institute. All rights reserved.
             </p>
             <div className="flex gap-6">
-              <a href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors duration-300">
+              <a
+                href="/privacy"
+                className="text-gray-400 hover:text-white text-sm transition-colors duration-300"
+              >
                 Privacy Policy
               </a>
-              <a href="/terms" className="text-gray-400 hover:text-white text-sm transition-colors duration-300">
+              <a
+                href="/terms"
+                className="text-gray-400 hover:text-white text-sm transition-colors duration-300"
+              >
                 Terms of Service
               </a>
-              <a href="/cookies" className="text-gray-400 hover:text-white text-sm transition-colors duration-300">
+              <a
+                href="/cookies"
+                className="text-gray-400 hover:text-white text-sm transition-colors duration-300"
+              >
                 Cookie Policy
               </a>
             </div>
