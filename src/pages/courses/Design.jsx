@@ -501,25 +501,6 @@ const DesignEditingCourseDetail = () => {
         </div>
       </section>
 
-      <style jsx>{`
-        .hide-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        .hide-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
-      <style jsx>{`
-        .hide-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        .hide-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
-
       {/* Enrollment Form */}
       <EnrollmentForm
         isOpen={isEnrollmentOpen}

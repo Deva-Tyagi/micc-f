@@ -39,15 +39,23 @@ function AnimatedRoutes() {
   const location = useLocation();
 
   return (
-    <AnimatePresence>
+    // ✅ FIX 1: Added mode="wait" so the exit animation fully completes
+    // before the new route mounts. Without this, both pages exist in the DOM
+    // simultaneously which causes navigation conflicts on mobile.
+    <AnimatePresence mode="wait">
       <motion.div
+        // ✅ FIX 2: key only on motion.div, NOT on <Routes> as well.
+        // Having key on both caused Routes to fully remount on every navigation,
+        // which reset the router state and swallowed the navigation event.
         key={location.pathname}
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -15 }}
         transition={{ duration: 0.35 }}
       >
-        <Routes location={location} key={location.pathname}>
+        {/* ✅ FIX 3: Removed duplicate key={location.pathname} from Routes.
+            Routes does not need a key — only the motion wrapper needs it. */}
+        <Routes location={location}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
@@ -69,11 +77,6 @@ function AnimatedRoutes() {
           <Route path="/courses/Ctp" element={<CtpCourse />} />
           <Route path="/courses/Video" element={<VideoCourse />} />
           <Route path="/courses/English" element={<EnglishCourse />} />
-
-          {/* Uncomment when ready */}
-          {/* <Route path="/admin/login" element={<AdminLogin />} /> */}
-          {/* <Route path="/student/login" element={<StudentLogin />} /> */}
-          {/* <Route path="/signup" element={<SignUp />} /> */}
         </Routes>
       </motion.div>
     </AnimatePresence>
