@@ -164,6 +164,7 @@ const DesktopNavbar = ({ scrolling }) => {
         </Link>
 
         <div className="relative">
+          
           <button
             onClick={() => setIsLoginMenuOpen(!isLoginMenuOpen)}
             className="login-button bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-300 flex items-center"
@@ -177,7 +178,7 @@ const DesktopNavbar = ({ scrolling }) => {
           {isLoginMenuOpen && (
             <div className="login-dropdown absolute right-0 bg-white border border-gray-300 shadow-lg mt-2 rounded-md z-10 w-48">
               <a
-                href="/admin/login"
+                href="https://adminmicc.mahiinstitute.com/login"
                 className="block px-4 py-3 text-gray-800 hover:bg-gray-100 hover:text-green-600 transition duration-300 border-b border-gray-200"
                 onClick={() => setIsLoginMenuOpen(false)}
               >

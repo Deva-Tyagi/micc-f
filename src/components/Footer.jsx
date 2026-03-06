@@ -88,7 +88,7 @@ const Footer = () => {
                     <Facebook size={20} />
                   </motion.a>
                   <motion.a
-                    href="https://www.instagram.com/micc.official/"
+                    href="https://www.instagram.com/micc.official_/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full bg-blue-800/30 flex items-center justify-center hover:bg-pink-600 transition-colors duration-300"
